@@ -1,7 +1,21 @@
+require("dotenv").config();
 const express = require("express")
 const app= express()
 const PORT = process.env.PORT || 3000;
 const pokemon = require('./models/Pokemon');
+const {connect , connection} = require('mongoose');
+
+//Database Connection
+
+connect(process.env.MONGO_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  });
+
+  connection.once('open', () => {
+    console.log('connected to mongo');
+  });
+
 
 //MiddleWare
 
