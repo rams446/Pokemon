@@ -8,11 +8,9 @@ class Index extends React.Component {
     {
         pokemon.map((pokemon ,i )=> {
         return (
-            <li key={i}>
-                {pokemon.name} <br></br>
-                <a href={`/pokemon/${i}`}>{pokemon.img}</a>
+            <li key={i}> 
+                <a href={`/pokemon/${i}`}>{pokemon.name}</a>
             </li>
-
         );
     })  
     }
