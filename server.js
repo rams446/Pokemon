@@ -7,15 +7,22 @@ const pokemon = require('./models/Pokemon');
 
 const reactViewEngine = require("jsx-view-engine").createEngine();
 app.engine('jsx', reactViewEngine)
+app.set('view engine', 'jsx');
 app.set('views', './views')
 
 // Custom Middleware 
 app.use(express.urlencoded({extended : false}));
 // INDEX
 app.get('/pokemon',(req,res) =>{
-    res.render('/Index', {pokemon})
+    res.render('Index', {pokemon})
     });
 
+
+// Show 
+
+app.get('/pokemon/:id' , (req , res) => {
+    res.render('Show',{pokemon : pokemon[req.params.id]})
+});
 
 
 

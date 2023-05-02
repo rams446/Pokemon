@@ -6,15 +6,14 @@ class Index extends React.Component {
     <div> 
     <ul>
     {
-        pokemon.map(pokemon ,i => {
+        pokemon.map((pokemon ,i )=> {
         return (
             <li key={i}>
-                <a href={`/pokemon/${i}`}>{pokemon.name}</a>
-            <br></br>
-            {pokemon.color} 
+                {pokemon.name} <br></br>
+                <a href={`/pokemon/${i}`}>{pokemon.img}</a>
             </li>
 
-        )
+        );
     })  
     }
     </ul>
@@ -23,3 +22,4 @@ class Index extends React.Component {
     )
     }
 }
+module.exports =Index
