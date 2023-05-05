@@ -1,23 +1,27 @@
-const React = require("react")
-class Index extends React.Component {
-    render(){
-    const {pokemon} = this.props
-    return (
-    <div> 
-    <ul>
-    {
-        pokemon.map((pokemon ,i )=> {
+    const React = require("react")
+    // const Nav = require("../components/Nav")
+    class Index extends React.Component {
+        render(){
+        
+        const {pokemon} = this.props
         return (
-            <li key={i}> 
-                <a href={`/pokemon/${i}`}>{pokemon.name}</a>
-            </li>
-        );
-    })  
+        
+        <div> 
+            {/* <Nav link="/pokemon/new" text="Create a Pokemon"/> */}
+        <ul>
+        {
+            pokemon.map((pokemon ,i )=> {
+            return (
+                <li key={i}> 
+                    <a href={`/pokemon/${pokemon._id}`}>{pokemon.name}</a>
+                </li>
+            );
+        })  
+        }
+        </ul>
+        </div>
+        
+        )
+        }
     }
-    </ul>
-    </div>
-    
-    )
-    }
-}
-module.exports =Index
+    module.exports =Index
